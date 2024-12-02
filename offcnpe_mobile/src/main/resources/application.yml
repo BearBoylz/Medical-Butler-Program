@@ -1,0 +1,13 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: offcnpe_mobile
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20882
+  registry:
+    address: zookeeper://192.168.211.128:2181
+    timeout: 60000

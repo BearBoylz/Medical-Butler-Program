@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://Ass/offcnpe?useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: offcnpe_provider
+  redis:
+    password: 123456
+    host: 192.168.211.128
+    port: 6379
+server:
+  port: 9002
+
+
+mybatis-plus:
+  configuration:
+    #开启驼峰标识
+    map-underscore-to-camel-case: true
+    #控制台显示sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    #逻辑删除
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+      #加载我们的xml文件
+  mapper-locations: classpath:/mappers/xml/*.xml
+  type-aliases-package: com.offcn.pojo
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    address: zookeeper://192.168.211.128:2181
+    timeout: 60000
+  #扫描我们service注解
+  scan:
+    base-packages: com.offcn.service.impl

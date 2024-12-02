@@ -1,0 +1,23 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: offcnpe_controller
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  redis:
+    host: 192.168.211.128
+    port: 6379
+    password: 123456
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: zookeeper://192.168.211.128:2181
+    timeout: 60000
+
